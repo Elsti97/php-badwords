@@ -1,7 +1,12 @@
 <?php
-  // $parolaCensurata = "";
-  $parolaCensurata = $_GET["parola"];
+
   $stringa = "Se ni’ mondo esistesse un po’ di bene e ognun si considerasse suo fratello, ci sarebbe meno pensieri e meno pene e il mondo ne sarebbe assai più bello.";
+
+  $parolaCensurata = NULL;
+
+  if(isSet($_GET['parola'])){
+    $parolaCensurata = $_GET["parola"];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,10 @@
     Parola da censurare: <input type="text"placeholder="Inserisci una parola" name="parola">
     <button type="submit" class="btn btn-primary">Invia</button>
   </form>
-  <h4>Paragrafo censurato: <?php echo str_replace($parolaCensurata, "***", $stringa) ?></h4>
+  <h4>
+    Paragrafo censurato: 
+    <?php echo str_replace($parolaCensurata, "***", $stringa) ?>
+  </h4>
 
 
 </body>
